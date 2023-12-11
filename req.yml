@@ -1,0 +1,10 @@
+---
+collections:
+  - name: cisco.asa
+  - name: cisco.nxos
+  - name: cisco.ios
+  - name: cisco.iosxr
+  - name: arista.eos
+  - name: f5networks.f5_modules
+  - name: paloaltonetworks.panos
+  - name: community.general
