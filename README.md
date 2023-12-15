@@ -68,37 +68,37 @@ Feel free to modify and customize these scripts as per your specific needs.
 
 ## Python Packages Included
 
-- ncclient
 - ansible
-- networklab
 - cffi
-- paramiko
-- netmiko
-- textfsm
-- pylint
-- pytest
-- ptf
-- scapy
-- yapf
-- requests
-- urllib3
-- lxml
-- jmespath
-- scp
 - ciscoconfparse
-- netaddr
 - genie
-- pyats[full]
-- pynetbox
-- objectpath
+- jmespath
+- lxml
 - napalm
 - napalm-ansible
+- ncclient
+- netaddr
+- netmiko
+- networklab
 - nornir
 - nornir-napalm
-- yamllint
-- yq
 - ntc-templates
+- objectpath
+- paramiko
+- ptf
+- pyats[full]
+- pylint
+- pynetbox
+- pytest
+- requests
+- scapy
+- scp
+- textfsm
 - ttp
+- urllib3
+- yamllint
+- yapf
+- yq
 
 ## Ansible Galaxy Collections
 
