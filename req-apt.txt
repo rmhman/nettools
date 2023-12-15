@@ -23,5 +23,6 @@ sshpass
 tcpdump
 telnet
 traceroute
+unzip
 vim
 zsh
