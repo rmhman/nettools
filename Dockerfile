@@ -1,8 +1,6 @@
 #FROM ubuntu:22.04
 FROM ubuntu:latest
 LABEL author="Ross Heilman" 
-RUN mkdir /shared && /root/.ssh
-COPY shared/ /root/.ssh
 COPY apt-install.sh /tmp/apt-install.sh
 COPY req-apt.txt /tmp/req-apt.txt
 RUN bash /tmp/apt-install.sh
