@@ -4,4 +4,10 @@ if [[ $# != 1 ]]; then
   exit 1
 fi
 docker restart $1
-docker exec -u 0 -it $1 /bin/zsh -l
+if docker exec -u 0 -it "$1" /bin/zsh -l; then
+    echo "Have a Nice Day!"
+else
+    echo "Command failed. Running alternative command..."
+    docker exec -u 0 -it "$1" /bin/bash -l
+fi
+
