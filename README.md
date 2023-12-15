@@ -5,6 +5,8 @@ This will get your container up and running:
 
 **Note:** You will want to make sure you have a folder named `shared` in the directory you are running the `docker run` command from. Or, remove `-v $PWD/shared:/shared` from the command above.
 
+**Other Note:** Remove `--rm` from the above command if you want the container to remain after exiting; otherwise, it will be destroyed.
+
 # Network Tools Container
 
 This Docker container provides a collection of base Linux tools and automation tools for network operations. It includes popular Linux tools such as cron, curl, gcc, git, iperf, ipmitool, and many more. Additionally, it includes Python packages like ncclient, ansible, pyats, and various others.
@@ -15,7 +17,7 @@ This Docker container provides a collection of base Linux tools and automation t
 The repository includes a shared folder that will be mapped to the container's shared folder. This allows for easy movement and sharing of folders and files between the container-host and the container itself.
 
 ## Usage
-Make sure you have Docker installed and configured before using this network tools container.
+Ensure you have Docker installed and configured before using this network tools container.
 
 **Note:** Replace <container_name> with the desired name for your container.
 
