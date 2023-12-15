@@ -4,4 +4,4 @@ if [[ $# != 1 ]]; then
   exit 1
 fi
 docker restart $1
-docker exec -u 0 -it $1 /bin/bash -l
+docker exec -u 0 -it $1 /bin/zsh -l

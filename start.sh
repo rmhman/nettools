@@ -4,4 +4,4 @@ if [[ $# != 1 ]]; then
   exit 1
 fi
 
-docker run --name $1  -v $PWD/shared:/shared -it nettools:latest /bin/bash -l
+docker run --name $1  -v $PWD/shared:/shared -it rmheilman/nettools:2.2 /bin/zsh -l

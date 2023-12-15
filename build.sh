@@ -1,2 +1,2 @@
 #! /bin/bash
-docker build -t nettools:latest .
+docker build -t rmheilman/nettools:2.2 .

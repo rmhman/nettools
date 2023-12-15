@@ -1,0 +1,1 @@
+```docker run -it --rm --name nettools -v $PWD/shared:/shared rmheilman/nettools:2.2 /bin/zsh```
