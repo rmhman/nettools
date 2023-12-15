@@ -113,4 +113,6 @@ Feel free to modify and customize these scripts as per your specific needs.
 
 For any questions or issues, please open an issue in the repository.
 
+**-Special Note:** Run `p10k configure` to configure your prompt inside the container.
+
 **Happy Networking!**
