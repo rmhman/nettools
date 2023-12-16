@@ -5,6 +5,7 @@ collections:
   - name: cisco.ios
   - name: cisco.iosxr
   - name: arista.eos
+  - name: arista.avd
   - name: f5networks.f5_modules
   - name: paloaltonetworks.panos
   - name: community.general
