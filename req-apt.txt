@@ -1,3 +1,4 @@
+awscli
 cron
 curl
 gcc
