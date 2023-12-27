@@ -14,6 +14,8 @@ nornir
 nornir-napalm
 ntc-templates
 objectpath
+openpyxl
+pandas
 paramiko
 ptf
 pyats[full]

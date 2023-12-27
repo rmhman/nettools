@@ -108,6 +108,9 @@ plugins=($_PLUGINS)
 # ZSH Aliases
 . ~/.zsh_aliases
 
+# ZSH Functions
+. ~/.zsh_functions
+
 # Set up Docker filemoves
 . ~/filemove.sh
 
@@ -116,6 +119,7 @@ EOM
     printf "\nsource \$ZSH/oh-my-zsh.sh\n"
 
 touch ~/.zsh_aliases
+touch ~/.zsh_functions
 
 }
 
