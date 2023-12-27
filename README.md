@@ -1,60 +1,129 @@
-[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/stephenpaynter/Dynamic-Testbed)
+## QUICK START: TL;DR
+This will get your container up and running:
 
-# Generate a Cisco pyATS/Genie Testbed file from an Ansible inventory
+```docker run -it --rm --name nettools -v $PWD/shared:/shared rmheilman/nettools /bin/zsh```
 
-Create pyATS/Genie testbed files from pre-configured Ansible Inventories. If you've already configured and created Ansible Inventory files then this code will allow you to pull all the required data from these files and populate the data into a pyATS/Genie Testbed file.
+**Note:** You will want to make sure you have a folder named `shared` in the directory you are running the `docker run` command from. Or, remove `-v $PWD/shared:/shared` from the command above.
 
-## Use Case Description
+**Other Note:** Remove `--rm` from the above command if you want the container to remain after exiting; otherwise, it will be destroyed.
 
-The code is used to save the time and duplication of having to create an Interactive Testbed when an already provisioned Ansible Inventory files exist. The code uses an Ansible inventory group, flattens it to a list and runs a loop to populate a testbed file via a Jinja2 template.
+# Network Tools Container
 
-## Installation
-
-To install, simply clone this repository. No code dependancies are required, only a standard installation of Ansible and pyATS/Genie.
+This Docker container provides a collection of base Linux tools and automation tools for network operations. It includes popular Linux tools such as cron, curl, gcc, git, iperf, ipmitool, and many more. Additionally, it includes Python packages like ncclient, ansible, pyats, and various others.
 
 
-## Configuration
+## Shared Folder
 
-The code contains certain criteria which will require adjusting.
-
-- The devices variable will require setting to target your chosen inventory group. 
-- The more complete the Ansible Inventory file is the less additional code adjusts will be required. The following fields within the Ansible Inventory are required for the code to function without any amends.
-
-```bash
-ansible_ssh_pass
-ansible_user
-ansible_password
-ansible_network_os
-```
-
-- If the above fields do not exist they can be manually added within the /templates/testbed.j2 file. Simply remove the varible and replace with your chosen value.
-
-For example if the ansible_password field is not configured and all your devices have the same password simple do the following.
-
-Replace
-```yaml
-password: {{ hostvars[inventory_hostname]['ansible_password'] }}
-```
-With
-```yaml
-password: yourpassword
-```
-
-The same applies for other values. If you are using an encypted password ensure the encrypted value is surrounded by single quotes.
-
-By default the Testbed file is created in the same folder as the playbook ran from, this can be changed via entering the PWD in the dest: under the template module in the PyatsTestbed.yml file.
+The repository includes a shared folder that will be mapped to the container's shared folder. This allows for easy movement and sharing of folders and files between the container-host and the container itself.<br>
+*The contents of this folder is ignored by git except the python and ansible directories.*<br> 
+<blockquote>
+    *Make sure to store sensitive data outside of those two folders to keep the data secure and not in git*
+</blockquote>
 
 ## Usage
+Ensure you have Docker installed and configured before using this network tools container.
 
-To run the code use the following command
+**Note:** Replace <container_name> with the desired name for your container.
 
-```yaml
-ansible-playbook PyatsTestbed.yml
-```
-## Getting Help
+1. Clone the repository.
+2. `docker pull rmheilman/nettools` Skip step 3 unless you made changes to the Dockerfile
+3. Run `./build.sh` to build the Docker image.
+4. Run `./start.sh <container_name>` to create the container and map the shared folder.
+5. Use the provided bash scripts (`exec.sh`, `restart.sh`) to manage and interact with the running container.
 
-If you have questions you can look me up on Twitter @stephenpaynter.
-Any bug reports, etc., please create an issue against this repository.
+## Bash Scripts
 
-# Cisco Developer Code Exchange
-This repo has been submited to the Cisco Developer Code Exchange.
+The repository includes several bash scripts to simplify container management:
+
+- `./build.sh`: Builds the Docker image. Only needed if you made changes to the Dockerfile
+- `./exec.sh <container_name>`: Gets you into an already running container and puts you into a zsh prompt. 
+- `./restart.sh <container_name>`: Restarts the container and executes you in it. 
+- `./start.sh <container_name>`: Must be run first; it creates the container and maps the shared folder. 
+
+Feel free to modify and customize these scripts as per your specific needs.
+
+
+## Linux Tools Included
+
+- cron
+- curl
+- gcc
+- git
+- iperf
+- ipmitool
+- iputils-ping
+- jq
+- libffi-dev
+- libssl-dev
+- libxslt1-dev
+- make
+- net-tools
+- netcat
+- nmap
+- plocate
+- python-is-python3
+- python3
+- python3-dev
+- python3-pip
+- python3-setuptools
+- sshpass
+- tcpdump
+- telnet
+- traceroute
+- vim
+- zsh
+
+## Python Packages Included
+
+- ansible
+- cffi
+- ciscoconfparse
+- genie
+- jmespath
+- lxml
+- napalm
+- napalm-ansible
+- ncclient
+- netaddr
+- netmiko
+- networklab
+- nornir
+- nornir-napalm
+- ntc-templates
+- objectpath
+- openpyxl
+- pandas
+- paramiko
+- ptf
+- pyats[full]
+- pylint
+- pynetbox
+- pytest
+- requests
+- scapy
+- scp
+- textfsm
+- ttp
+- urllib3
+- yamllint
+- yapf
+- yq
+
+## Ansible Galaxy Collections
+
+- cisco.asa
+- cisco.nxos
+- cisco.ios
+- cisco.iosxr
+- arista.eos
+- f5networks.f5_modules
+- paloaltonetworks.panos
+- community.general
+
+For any questions or issues, please open an issue in the repository.
+
+
+**Special Note:** Run `p10k configure` to configure your prompt inside the container.
+
+
+**Happy Networking!**
