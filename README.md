@@ -25,7 +25,7 @@ Ensure you have Docker installed and configured before using this network tools 
 
 **Note:** Replace <container_name> with the desired name for your container.
 
-1. Clone the repository.
+1. Clone the repository. `git clone https://github.com/rmhman/nettools.git`
 2. `docker pull rmheilman/nettools` Skip step 3 unless you made changes to the Dockerfile
 3. Run `./build.sh` to build the Docker image.
 4. Run `./start.sh <container_name>` to create the container and map the shared folder.
