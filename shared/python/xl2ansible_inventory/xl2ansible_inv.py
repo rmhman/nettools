@@ -1,6 +1,5 @@
 import pandas as pd
 import yaml
-import sys
 
 def convert_xlsx_to_inventory(xlsx_file, output_file):
     # Load the Excel spreadsheet
@@ -21,7 +20,7 @@ def convert_xlsx_to_inventory(xlsx_file, output_file):
         variables = {}
 
         # Iterate over the columns and extract variables
-        for col in df.columns[2:]:
+        for col in df.columns[1:]:
             key = str(col)
             value = str(row[col])
             variables[key] = value
@@ -39,14 +38,14 @@ def convert_xlsx_to_inventory(xlsx_file, output_file):
     # Convert inventory dictionary to YAML
     inventory_yaml = yaml.dump(inventory)
 
+    # Remove null values from the YAML output
+    inventory_yaml = inventory_yaml.replace(' null', '')
+
     # Write inventory YAML to output file
     with open(output_file, 'w') as f:
         f.write(inventory_yaml)
 
 # Usage
-if len(sys.argv) != 3:
-    print("Usage: python script.py <input_file> <output_file>")
-else:
-    input_file = sys.argv[1]
-    output_file = sys.argv[2]
-    convert_xlsx_to_inventory(input_file, output_file)
+xlsx_file = '/shared/inventory.xlsx'
+output_file = '/shared/inventory.yml'
+convert_xlsx_to_inventory(xlsx_file, output_file)
