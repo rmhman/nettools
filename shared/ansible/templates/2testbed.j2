@@ -1,0 +1,16 @@
+devices:
+{% for host in _testbed %}
+  {{ hostvars[host]['inventory_hostname'] }}:
+    connections:
+      cli:
+        ip: {{ hostvars[host]['ip'] }}
+        protocol: ssh
+    credentials:
+      default:
+        password: {{ hostvars[host]['password'] }}
+        username: {{ hostvars[host]['username'] }}
+      enable:
+        password: {{ hostvars[host]['enable_password'] }}
+    os: {{ hostvars[host]['os'] }}
+    type: {{ hostvars[host]['os'] }}
+{% endfor %}

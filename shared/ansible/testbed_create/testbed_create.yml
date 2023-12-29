@@ -9,12 +9,14 @@
 
   tasks:
     - name: Flatten Group Name To Device List.
-      ansible.modules.set_fact:
+      ansible.builtin.set_fact:
         _testbed: '{{ _devices | map("extract", groups) | flatten | list }}'
 
     - name: Template Ansible Inventory Devices To Testbed.yml
-      ansible.modules.template:
-        src: templates/testbed.j2
+      ansible.builtin.template:
+        src: ../templates/2testbed.j2
         dest: ../../testbed.yml
         mode: '0644'
       delegate_to: localhost
+      tags:
+        - skip_ansible_lint
