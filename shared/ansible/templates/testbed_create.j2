@@ -12,5 +12,5 @@ devices:
       enable:
         password: {{ hostvars[host]['enable_password'] }}
     os: {{ hostvars[host]['os'] }}
-    type: {{ hostvars[host]['os'] }}
+    type: {{ hostvars[host]['type'] }}
 {% endfor %}
