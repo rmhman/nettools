@@ -13,10 +13,17 @@ def save_running_config(testbed_file):
             print(running_config, file=output_file)
         device.disconnect()
 
+# Check for help flag
+if len(sys.argv) > 1 and sys.argv[1] in ['-h', '--help']:
+    print("Usage: python script.py [testbed_file]")
+    print("If no testbed file is provided, the default path /shared/testbed.yml will be used.")
+    sys.exit(0)
+
 # Get the testbed file path from command-line arguments
 if len(sys.argv) < 2:
-    print("Please provide the testbed file path as a command-line argument.")
-    sys.exit(1)
+    print("No testbed file path specified. Using the default path: /shared/testbed.yml")
+    testbed_file = '/shared/testbed.yml'
+else:
+    testbed_file = sys.argv[1]
 
-testbed_file = sys.argv[1]
 save_running_config(testbed_file)

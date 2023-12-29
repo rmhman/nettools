@@ -4,7 +4,7 @@ devices:
     connections:
       cli:
         ip: {{ hostvars[host]['ip'] }}
-        protocol: ssh
+        protocol: {{ hostvars[host]['protocol'] }}
     credentials:
       default:
         password: {{ hostvars[host]['password'] }}
