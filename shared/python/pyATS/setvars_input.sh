@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # Prompt for user input
 read -p "Enter your username: " your_user

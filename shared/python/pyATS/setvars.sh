@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # Assign your credentials here
 your_user="username"
