@@ -15,7 +15,7 @@ def save_running_config(testbed_file):
 
 # Check for help flag
 if len(sys.argv) > 1 and sys.argv[1] in ['-h', '--help']:
-    print("Usage: python script.py [testbed_file]")
+    print("Usage: python getrun.py [testbed_file]")
     print("If no testbed file is provided, the default path /shared/testbed.yml will be used.")
     sys.exit(0)
 
