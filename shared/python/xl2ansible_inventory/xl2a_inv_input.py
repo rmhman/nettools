@@ -46,6 +46,9 @@ def convert_xlsx_to_inventory():
 
     # Remove null values from the YAML output
     inventory_yaml = inventory_yaml.replace(' null', '')
+    inventory_yaml = inventory_yaml.replace("'%ENV{PYATS_ENABLE_PASS}'", '"{{ lookup(\'env\', \'PYATS_ENABLE_PASS\') }}"')
+    inventory_yaml = inventory_yaml.replace("'%ENV{PYATS_PASS}'", '"{{ lookup(\'env\', \'PYATS_PASS\') }}"')
+    inventory_yaml = inventory_yaml.replace("'%ENV{PYATS_USER}'", '"{{ lookup(\'env\', \'PYATS_USER\') }}"')
 
     # Write inventory YAML to output file
     with open(output_file, 'w') as f:

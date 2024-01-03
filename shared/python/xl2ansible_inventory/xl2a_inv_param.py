@@ -41,6 +41,9 @@ def convert_xlsx_to_inventory(xlsx_file, output_file):
 
     # Remove null values from the YAML output
     inventory_yaml = inventory_yaml.replace(' null', '')
+    inventory_yaml = inventory_yaml.replace("'%ENV{PYATS_ENABLE_PASS}'", '"{{ lookup(\'env\', \'PYATS_ENABLE_PASS\') }}"')
+    inventory_yaml = inventory_yaml.replace("'%ENV{PYATS_PASS}'", '"{{ lookup(\'env\', \'PYATS_PASS\') }}"')
+    inventory_yaml = inventory_yaml.replace("'%ENV{PYATS_USER}'", '"{{ lookup(\'env\', \'PYATS_USER\') }}"')
 
     # Write inventory YAML to output file
     with open(output_file, 'w') as f:
@@ -48,7 +51,7 @@ def convert_xlsx_to_inventory(xlsx_file, output_file):
 
 # Usage
 if len(sys.argv) != 3:
-    print("Usage: python script.py <input_file> <output_file>")
+    print("Usage: python xl2a_inv_param.py <input_file> <output_file>")
 else:
     input_file = sys.argv[1]
     output_file = sys.argv[2]
