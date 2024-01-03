@@ -1,4 +1,5 @@
 import sys
+import os
 from genie.testbed import load
 
 def save_running_config(testbed_file):
@@ -8,7 +9,9 @@ def save_running_config(testbed_file):
         device = testbed.devices[device_name]
         device.connect()
         running_config = device.parse('show running-config')
-        output_file_path = f'/shared/runconfig/{device_name}.txt'
+        output_directory = '/shared/runconfig'
+        os.makedirs(output_directory, exist_ok=True)  # Create directory if it doesn't exist
+        output_file_path = f'{output_directory}/{device_name}.txt'
         with open(output_file_path, 'w') as output_file:
             print(running_config, file=output_file)
         device.disconnect()
