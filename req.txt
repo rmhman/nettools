@@ -38,3 +38,9 @@ xmltodict
 yamllint
 yapf
 yq
+treelib
+cvprac
+jsonschema
+PyYAML
+md-toc
+deepmerge
