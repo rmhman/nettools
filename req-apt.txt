@@ -13,6 +13,7 @@ make
 net-tools
 socat
 nmap
+pipx
 plocate
 python-is-python3
 python3
