@@ -41,6 +41,9 @@ yq
 treelib
 cvprac
 jsonschema
+md-toc
+deepmerge
+aristaproto
 PyYAML
 md-toc
 deepmerge

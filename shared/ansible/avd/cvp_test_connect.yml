@@ -1,0 +1,24 @@
+# Author: Ross Heilman
+# Version: 1.0
+# Date: May 2, 2024
+# Description: This playbook tests connectivity to CVP (CloudVision Portal) server.
+# Usage: ansible-playbook cvp_test_connect.yml
+---
+- name: Test connectivity to CVP using URI module
+  hosts: CVP_cluster
+  gather_facts: false
+
+  tasks:
+    - name: Test CVP connectivity
+      ansible.builtin.uri:
+        url: "https://{{ ansible_host }}/web/"
+        method: GET
+        user: "{{ ansible_user }}"
+        password: "{{ ansible_password }}"
+        validate_certs: false
+        status_code: 200
+      register: cvp_response
+
+    - name: Display CVP response
+      ansible.builtin.debug:
+        var: cvp_response

@@ -4,6 +4,8 @@ collections:
   - name: cisco.nxos
   - name: cisco.ios
   - name: cisco.iosxr
+  - name: ansible.utils
+  - name: arista.cvp
   - name: arista.eos
   - name: arista.avd
   - name: f5networks.f5_modules

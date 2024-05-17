@@ -1,0 +1,20 @@
+# Author: Ross Heilman
+# Version: 1.0
+# Date: May 2, 2024
+# Description: This playbook uploads a configlets to CVP (CloudVision Portal) server.
+# Usage: ansible-playbook cvp_test_config.yml
+---
+- name: Upload CVP configlets
+  hosts: CVP_cluster
+  gather_facts: no
+
+  tasks:
+    - name: Upload CVP configlets
+      ansible.builtin.import_role:
+        name: arista.avd.cvp_configlet_upload
+      vars:
+        configlet_directory: 'configlets'
+        file_extension: 'conf'
+        configlets_cvp_prefix: 'AVD'
+        execute_tasks: false
+        cv_collection: v3
