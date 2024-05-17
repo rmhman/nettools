@@ -12,7 +12,7 @@ libssl-dev
 libxslt1-dev
 make
 net-tools
-netcat
+socat
 nmap
 plocate
 python-is-python3
