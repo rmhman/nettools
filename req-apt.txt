@@ -1,4 +1,4 @@
-awscli
+aws-cli
 cron
 curl
 gcc
