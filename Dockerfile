@@ -1,5 +1,4 @@
-#FROM ubuntu:22.04
-FROM ubuntu:latest
+FROM ubuntu:22.04
 LABEL author="Ross Heilman" 
 RUN mkdir -p /root/.ssh/keys
 COPY filemove.sh /root/filemove.sh
