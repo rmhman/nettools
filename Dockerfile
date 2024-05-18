@@ -7,8 +7,8 @@ COPY req-apt.txt /tmp/req-apt.txt
 RUN bash /tmp/apt-install.sh
 COPY req.txt /tmp/req.txt
 COPY req.yml /tmp/req.yml
-RUN pipx install --no-cache-dir --upgrade pipx && \
-    pipx install --no-cache-dir --upgrade -r /tmp/req.txt  && \
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir --upgrade -r /tmp/req.txt  && \
     ansible-galaxy collection install --pre -p /usr/share/ansible/collections -r /tmp/req.yml
 RUN apt-get install -f
 
