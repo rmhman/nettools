@@ -38,7 +38,7 @@ xmltodict
 yamllint
 yapf
 yq
-treelib
+treelibi
 cvprac
 jsonschema
 md-toc
@@ -47,3 +47,4 @@ aristaproto
 PyYAML
 md-toc
 deepmerge
+illumio-py
