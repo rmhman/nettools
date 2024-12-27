@@ -42,7 +42,7 @@ xmltodict
 yamllint
 yapf
 yq
-treelibi
+treelib
 cvprac
 jsonschema
 md-toc
