@@ -33,6 +33,7 @@ pyyaml
 requests
 scapy
 scp
+setuptools
 tabulate
 textfsm
 ttp
