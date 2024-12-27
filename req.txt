@@ -51,4 +51,3 @@ aristaproto
 PyYAML
 md-toc
 deepmerge
-illumio-pylo
