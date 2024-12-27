@@ -1,4 +1,6 @@
 ansible
+ansible-runner
+build
 cffi
 ciscoconfparse
 cryptography
@@ -24,6 +26,7 @@ pyats[full]
 pydantic
 pylint
 pynetbox
+pyscaffold
 pysnmp
 pytest
 pyyaml
