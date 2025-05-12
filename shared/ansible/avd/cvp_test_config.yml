@@ -6,15 +6,15 @@
 ---
 - name: Upload CVP configlets
   hosts: CVP_cluster
-  gather_facts: no
+  gather_facts: false
 
   tasks:
     - name: Upload CVP configlets
       ansible.builtin.import_role:
         name: arista.avd.cvp_configlet_upload
       vars:
-        configlet_directory: 'configlets'
-        file_extension: 'conf'
-        configlets_cvp_prefix: 'AVD'
+        configlet_directory: "configlets"
+        file_extension: "conf"
+        configlets_cvp_prefix: "AVD"
         execute_tasks: false
         cv_collection: v3
